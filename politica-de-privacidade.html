@@ -1,61 +1,183 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidade - Lista Voxx PRO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Lista Voxx</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0c1d; /* Fundo principal escuro */
+            --accent-gradient: linear-gradient(135deg, #6e2da8 0%, #d83a6f 100%); /* Gradiente do header */
+            --gold: #ffcc33; /* Cor de destaque para títulos importantes */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--accent-gradient);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .update-date {
+            color: var(--gold);
+            font-size: 0.9em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        h2 {
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        p, li {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .alert-box {
+            background: rgba(216, 58, 111, 0.2);
+            border-left: 5px solid #d83a6f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .alert-box strong { color: #fff; }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    </style>
 </head>
 <body>
-  <h1>Política de Privacidade</h1>
-  <p>Esta Política de Privacidade descreve como o aplicativo <strong>Lista Voxx PRO</strong> coleta, utiliza, protege e compartilha seus dados. É importante que você leia com atenção para entender nossas práticas e seus direitos.</p>
 
-  <h2>1. Informação que podemos coletar</h2>
-  <ul>
-    <li><strong>Dados fornecidos pelo usuário:</strong> texto de listas, comandos de voz, itens cadastrados.</li>
-    <li><strong>Dados de uso:</strong> interações no app, telas visitadas, frequência de uso, erros ou falhas, de forma anonimizada.</li>
-    <li><strong>ID de publicidade (Ad ID):</strong> somente se você estiver na versão gratuita com anúncios e tiver consentido com isso.</li>
-    <li><strong>Dados do dispositivo:</strong> modelo, versão do Android, identificadores técnicos (sem vínculo com dados pessoais).</li>
-  </ul>
+<header>
+    <h1>Política de Privacidade</h1>
+    <p>Sua privacidade é nossa prioridade no <strong>Lista Voxx</strong></p>
+</header>
 
-  <h2>2. Finalidade da coleta</h2>
-  <ul>
-    <li>Permitir o funcionamento adequado do aplicativo e seus recursos principais.</li>
-    <li>Personalizar e ajustar a experiência de uso conforme o comportamento do usuário.</li>
-    <li>Exibir anúncios relevantes na versão gratuita, quando aplicável.</li>
-    <li>Melhorar o desempenho do app, identificar erros e otimizar a usabilidade.</li>
-    <li>Atender obrigações legais ou requisições judiciais, quando necessário.</li>
-  </ul>
+<div class="container">
+    <div class="update-date">Última atualização: 24 de dezembro de 2025</div>
 
-  <h2>3. Base legal</h2>
-  <p>O tratamento dos dados ocorre com base no consentimento do usuário, na prestação dos serviços oferecidos pelo app e no interesse legítimo de manter o funcionamento adequado da aplicação.</p>
+    <div class="section-card">
+        <h2><i class="fas fa-database"></i> 1. Coleta de Dados</h2>
+        <p>O aplicativo coleta as seguintes informações:</p>
+        <ul>
+            <li>Informações fornecidas pelo usuário ao criar listas de compras ou comandos de voz.</li>
+            <li>Informações anônimas de uso do aplicativo, para fins de análise e melhorias.</li>
+            <li>Identificador de publicidade do Google (quando o usuário consente).</li>
+        </ul>
+    </div>
 
-  <h2>4. Compartilhamento de dados</h2>
-  <ul>
-    <li><strong>Não compartilhamos seus dados pessoais com terceiros.</strong></li>
-    <li>As listas criadas são privadas, sendo compartilhadas apenas por ação direta do usuário (WhatsApp, e-mail, etc.).</li>
-    <li>Poderemos utilizar serviços como Google AdMob para veicular anúncios, respeitando as configurações de privacidade do seu dispositivo.</li>
-    <li>Serviços técnicos como análise de falhas podem ser utilizados de forma anonimizada e sem fins comerciais.</li>
-  </ul>
+    <div class="section-card">
+        <h2><i class="fas fa-microchip"></i> 2. Uso de Dados</h2>
+        <p>As informações coletadas são usadas para:</p>
+        <ul>
+            <li>Permitir o funcionamento do app e a personalização da experiência do usuário.</li>
+            <li>Compartilhamento de listas criadas pelo usuário com outros contatos por meio de links ou aplicativos de mensagem.</li>
+            <li>Exibir anúncios relevantes (se o usuário estiver usando a versão gratuita com anúncios).</li>
+        </ul>
+    </div>
 
-  <h2>5. Armazenamento e segurança dos dados</h2>
-  <ul>
-    <li>Os dados são armazenados localmente no dispositivo do usuário.</li>
-    <li>Não utilizamos técnicas avançadas de criptografia ou servidores externos.</li>
-    <li>Não coletamos dados sensíveis como CPF, endereço, localização precisa ou informações bancárias.</li>
-  </ul>
+    <div class="section-card">
+        <h2><i class="fas fa-share-alt"></i> 3. Compartilhamento</h2>
+        <p>O app <strong>não compartilha dados pessoais</strong> com terceiros. As listas criadas pelo usuário são de uso pessoal e, se compartilhadas, o são apenas por ação do próprio usuário por meio de outros aplicativos (como WhatsApp ou e-mail).</p>
+    </div>
 
-  <h2>6. Retenção de dados</h2>
-  <p>Os dados permanecem no dispositivo enquanto o app estiver instalado. Ao desinstalar o aplicativo, todos os dados são removidos automaticamente do seu aparelho. Não armazenamos cópias em servidores externos.</p>
+    <div class="section-card">
+        <h2><i class="fas fa-ad"></i> 4. Publicidade</h2>
+        <p>O app pode usar serviços como o Google AdMob. O usuário pode redefinir ou desativar o ID de publicidade nas configurações do dispositivo Android.</p>
+    </div>
 
-  <h2>7. Propriedade intelectual</h2>
-  <p>O conteúdo criado por você (listas e comandos) pertence a você. O design, código-fonte e marca do Lista Voxx PRO são protegidos por direitos autorais e pertencem aos desenvolvedores.</p>
+    <div class="section-card">
+        <h2><i class="fas fa-users"></i> 5. Interações entre Usuários</h2>
+        <p>O compartilhamento de listas é voluntário. Não há rede social, chat integrado ou interação pública entre usuários dentro do ambiente do app.</p>
+    </div>
 
-  <h2>8. Atualizações desta política</h2>
-  <p>Esta política poderá ser atualizada ocasionalmente. Em caso de alterações importantes, notificaremos você por meio do próprio aplicativo. A data da última atualização estará sempre informada abaixo.</p>
+    <div class="section-card">
+        <h2><i class="fas fa-shield-alt"></i> 6. Segurança</h2>
+        <div class="alert-box">
+            <i class="fas fa-info-circle"></i> 
+            <strong>Segurança Máxima:</strong> Todos os dados são armazenados localmente ou anonimizados. O app não solicita informações sensíveis (CPF, dados bancários, etc).
+        </div>
+    </div>
 
-  <h2>9. Contato</h2>
-  <p>Em caso de dúvidas ou solicitações sobre esta política, entre em contato pelo e-mail: <a href="mailto:appsriad.br@gmail.com">appsriad.br@gmail.com</a></p>
+    <div class="section-card">
+        <h2><i class="fas fa-child"></i> 7. Crianças e Adolescentes</h2>
+        <div class="alert-box">
+            <strong>Aviso:</strong> Este aplicativo não é direcionado para menores de 16 anos. Não coletamos intencionalmente informações de crianças.
+        </div>
+    </div>
 
-  <p><em>Última atualização: 16 de julho de 2025</em></p>
+    <div class="section-card">
+        <h2><i class="fas fa-envelope-open-text"></i> 9. Contato</h2>
+        <p>Dúvidas sobre seus dados? Fale conosco:</p>
+        <a href="mailto:appsriad.br@gmail.com" class="contact-btn">Enviar E-mail</a>
+    </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
 </body>
 </html>
