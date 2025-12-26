@@ -3,242 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Voxx PRO - AppsRiad</title>
+    <title>Lista Voxx PRO - O Futuro das Compras por Voz</title>
     
+    <!-- SEO e Meta Tags -->
+    <meta name="description" content="Lista Voxx PRO: app de lista de compras por voz. Dite itens naturalmente, controle gastos simples, funciona offline.">
+    <meta property="og:title" content="Lista Voxx PRO - Compras por Voz">
+    <meta property="og:description" content="Dite sua lista de compras! Interface moderna e fluida.">
+    <meta property="og:image" content="home.jpg">
+    <meta property="og:url" content="https://listavoxxpro.com">
+    <link rel="canonical" href="https://listavoxxpro.com">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/umd/lucide.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            goldLight: '#F9E498',
+                            purple: '#2c0b50',
+                            dark: '#05010a',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 8s ease-in-out infinite 1s',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        /* Estilos customizados */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #100f1c; /* Roxo ainda mais escuro */
-            color: #e0e0e0;
-        }
-
-        .glassmorphism {
-            background: rgba(28, 20, 44, 0.5); /* Base do roxo escuro para o glassmorphism */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-bg {
-            background-image: linear-gradient(to bottom right, #2c0b50, #5a0935); /* Gradiente roxo mais escuro e intenso */
-            position: relative;
-            overflow: hidden;
-        }
+        body { background-color: #05010a; color: #ffffff; overflow-x: hidden; font-family: 'Inter', sans-serif; }
+        .bg-mesh { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; background: radial-gradient(circle at 10% 20%, rgba(90, 9, 53, 0.2) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(44, 11, 80, 0.3) 0%, transparent 40%); filter: blur(60px); }
+        .glass-panel { background: rgba(10, 5, 20, 0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .glass-card { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; }
+        .glass-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 40%);
-            animation: spin 25s linear infinite;
-        }
+        /* Molduras de Celular */
+        .phone-frame { border: 8px solid #1a1a1a; border-radius: 40px; overflow: hidden; position: relative; background: #000; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: transform 0.3s ease; }
+        .phone-frame:hover { border-color: #D4AF37; }
+        .phone-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .btn-premium {
-            background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728); /* Gradiente dourado metálico */
-            color: #100f1c;
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.2);
-            background-size: 200% auto;
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(191, 149, 63, 0.3);
-            background-position: right center; /* Animação do gradiente */
-        }
-
-        .text-gold {
-            color: #D4AF37; /* Tom de dourado mais rico */
-        }
-        
-        .section-title {
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-        }
-        
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .gallery-img:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Animação de fade-in ao rolar */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .app-name-header { font-family: 'Montserrat', sans-serif; letter-spacing: -0.02em; }
+        table th, table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-50 p-4 glassmorphism">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo Lista Voxx PRO" class="rounded-lg w-10 h-10">
-                <h1 class="text-2xl font-bold text-white">Lista Voxx PRO</h1>
+    <div class="bg-mesh"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-panel">
+        <div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="adaptive-icon.png" alt="Lista Voxx PRO Icon" class="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover border border-brand-gold/20 shadow-lg" onerror="this.src='home.jpg'">
+                <h1 class="app-name-header text-lg md:text-xl font-black text-white leading-none">
+                    LISTA VOXX <span class="text-brand-gold">PRO</span>
+                </h1>
             </div>
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="#app" class="hover:text-gold transition-colors duration-300">O App PRO</a>
-                <a href="#features" class="hover:text-gold transition-colors duration-300">Funções</a>
-                <a href="#gallery" class="hover:text-gold transition-colors duration-300">Galeria</a>
-                <a href="#contact" class="bg-purple-800 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Contato</a>
-            </nav>
-            <button class="md:hidden text-white">
-                <i data-lucide="menu"></i>
-            </button>
+            <a href="https://play.google.com/store/apps/details?id=com.doc.na.ListaVoxxPRO" target="_blank" class="hidden md:block bg-brand-gold hover:bg-brand-goldLight text-black px-6 py-2 rounded-full font-bold transition-all text-sm">
+                BAIXAR NA GOOGLE PLAY
+            </a>
         </div>
     </header>
 
-    <main class="pt-24">
-        <section class="hero-bg text-center py-20 md:py-32">
-            <div class="container mx-auto px-4 relative z-10">
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight section-title text-white">
-                    Sua lista de compras, agora com <span class="text-gold">superpoderes PRO</span>.
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+        <i data-lucide="mic" class="absolute -right-20 top-40 w-96 h-96 opacity-[0.03] text-brand-gold pointer-events-none rotate-12"></i>
+
+        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="space-y-8 reveal">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30">
+                    <span class="text-[10px] uppercase tracking-widest text-brand-gold font-black">App Brasileiro por Voz</span>
+                </div>
+
+                <h2 class="text-5xl lg:text-7xl font-black font-title leading-[1] tracking-tighter">
+                    Dite sua lista de compras<br>
+                    <span class="text-brand-gold drop-shadow-2xl">em segundos</span>
                 </h2>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-200 mb-8">
-                    Com o <strong>Lista Voxx PRO</strong>, você transforma sua voz em listas, organiza suas compras e controla seus gastos de um jeito fácil e inteligente.
+
+                <p class="text-lg text-gray-300 max-w-lg font-light leading-relaxed">
+                    Fale naturalmente e veja a lista pronta. 
+                    Interface limpa e controle de gastos simples. Funciona offline para você economizar tempo no mercado.
                 </p>
-                <a href="#" class="btn-premium font-bold py-3 px-8 rounded-full text-lg inline-flex items-center gap-2">
-                    <i data-lucide="download"></i>
-                    Baixar o App PRO
+
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="https://play.google.com/store/apps/details?id=com.doc.na.ListaVoxxPRO" target="_blank" class="px-8 py-4 bg-brand-gold text-black font-black rounded-xl shadow-xl transition-all hover:scale-105 active:scale-95 text-center">
+                        BAIXAR AGORA
+                    </a>
+                </div>
+            </div>
+
+            <!-- FOTO 1 (HOME) -->
+            <div class="relative reveal delay-200 flex justify-center lg:justify-end">
+                <div class="phone-frame w-[280px] h-[560px] animate-float">
+                    <img src="home.jpg" alt="Home do App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="py-24 bg-black/30 relative border-y border-white/5">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 reveal delay-100">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="mic" class="w-6 h-6 text-black"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">🎙️ Voz Prática</h4>
+                    <p class="text-gray-400">Dite itens do dia a dia naturalmente e o app entende o que você precisa.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 reveal delay-200">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="wallet" class="w-6 h-6 text-black"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">💰 Gastos Organizados</h4>
+                    <p class="text-gray-400">Acompanhe o total da lista enquanto compra. Controle financeiro direto no bolso.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 reveal delay-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="settings" class="w-6 h-6 text-black"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">⚙️ Customizável</h4>
+                    <p class="text-gray-400">Configure o app do seu jeito para uma experiência de compra personalizada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Central (TOUR e VOZ) -->
+    <section class="py-24 bg-gradient-to-r from-brand-dark to-black relative overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col items-center">
+            <h3 class="text-3xl font-black mb-16 text-center font-title uppercase tracking-tighter">Interface <span class="text-brand-gold">PRO</span></h3>
+            
+            <div class="flex flex-wrap justify-center gap-12 lg:gap-24 relative">
+                <!-- FOTO 2 (TOUR) -->
+                <div class="phone-frame w-[240px] h-[480px] animate-float-delayed">
+                    <img src="tour.jpg" alt="Tour do App">
+                </div>
+                <!-- FOTO 3 (VOZ) -->
+                <div class="phone-frame w-[240px] h-[480px] animate-float">
+                    <img src="preço.jpg" alt="Comando de Voz">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Final com ITENS e CONFIG -->
+    <section class="py-32 text-center reveal relative overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-3 items-center gap-12">
+            
+            <!-- FOTO 4 (ITENS) -->
+            <div class="hidden lg:block">
+                <div class="phone-frame w-[220px] h-[440px] mx-auto rotate-[-5deg] border-white/10">
+                    <img src="lista.jpg" alt="Lista de Itens">
+                </div>
+            </div>
+
+            <div class="z-10">
+                <h2 class="text-4xl md:text-5xl font-black mb-10 font-title">Simplifique suas <br><span class="text-brand-gold">Compras.</span></h2>
+                <a href="https://play.google.com/store/apps/details?id=com.doc.na.ListaVoxxPRO" target="_blank" class="inline-block px-10 py-5 bg-brand-gold text-black font-black text-xl rounded-2xl shadow-xl transition-all hover:scale-105">
+                    INSTALAR AGORA
                 </a>
             </div>
-        </section>
 
-        <section id="app" class="py-20 fade-in-section">
-            <div class="container mx-auto px-4">
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 section-title">Conheça o <span class="text-gold">Lista Voxx PRO</span></h3>
-                        <p class="text-gray-300 mb-6 text-lg">
-                            Cansado de digitar? O <strong>Lista Voxx PRO</strong> é o seu assistente de voz inteligente. Fale naturalmente os itens que precisa e veja a mágica acontecer. Perfeito para o mercado, feira ou qualquer tipo de compra com agilidade profissional.
-                        </p>
-                         <ul class="space-y-4 mb-8">
-                            <li class="flex items-center gap-3"><i data-lucide="mic" class="w-6 h-6 text-gold"></i><span>Criação de listas por voz</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="dollar-sign" class="w-6 h-6 text-gold"></i><span>Controle de gastos e histórico</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="smartphone" class="w-6 h-6 text-gold"></i><span>Interface moderna e customizável PRO</span></li>
-                        </ul>
-                    </div>
-                    <div class="flex justify-center px-8 md:px-0">
-                        <img src="Screenshot_20250707_214517_ListaVoxx.jpg" alt="Tela principal do App Lista Voxx PRO" class="max-h-[500px] md:max-h-[600px] rounded-3xl shadow-2xl shadow-purple-900/50 transform transition-transform duration-500 hover:scale-105 hover:rotate-[-2deg]">
-                    </div>
-                 </div>
-            </div>
-        </section>
-
-        <section id="features" class="py-20 bg-black bg-opacity-20 fade-in-section">
-            <div class="container mx-auto px-4">
-                <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">Funções PRO Pensadas para Você</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                    <div class="p-6 glassmorphism rounded-2xl transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-center mb-4">
-                            <div class="bg-purple-800 p-4 rounded-full">
-                                <i data-lucide="mic" class="text-white w-8 h-8"></i>
-                            </div>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gold">Assistente de Voz PRO</h4>
-                        <p class="text-gray-400">Fale naturalmente e o <strong>Lista Voxx PRO</strong> converte em itens. Reconhece produtos do dia a dia com precisão.</p>
-                    </div>
-                    <div class="p-6 glassmorphism rounded-2xl transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-center mb-4">
-                            <div class="bg-purple-800 p-4 rounded-full">
-                                <i data-lucide="wallet" class="text-white w-8 h-8"></i>
-                            </div>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gold">Controle Financeiro</h4>
-                        <p class="text-gray-400">No <strong>Lista Voxx PRO</strong>, você acompanha o total gasto e acessa seu histórico completo para economizar.</p>
-                    </div>
-                    <div class="p-6 glassmorphism rounded-2xl transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex justify-center mb-4">
-                            <div class="bg-purple-800 p-4 rounded-full">
-                                <i data-lucide="palette" class="text-white w-8 h-8"></i>
-                            </div>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gold">Customização PRO</h4>
-                        <p class="text-gray-400">Deixe o app com a sua cara! O <strong>Lista Voxx PRO</strong> oferece Modo Escuro e diversos temas exclusivos.</p>
-                    </div>
+            <!-- FOTO 5 (CONFIG) -->
+            <div class="hidden lg:block">
+                <div class="phone-frame w-[220px] h-[440px] mx-auto rotate-[5deg] border-white/10">
+                    <img src="config.jpg" alt="Configurações">
                 </div>
             </div>
-        </section>
-        
-        <section id="gallery" class="py-20 fade-in-section">
-            <div class="container mx-auto px-4">
-                <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">Uma espiada no <span class="text-gold">Lista Voxx PRO</span></h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <img src="Screenshot_20250707_214600_ListaVoxx.jpg" alt="Tela de boas-vindas do Lista Voxx PRO" class="gallery-img">
-                    <img src="Screenshot_20250707_214533_ListaVoxx.jpg" alt="Tela do Livro de Listas com histórico no Lista Voxx PRO" class="gallery-img">
-                    <img src="Screenshot_20250707_214436_ListaVoxx.jpg" alt="Tela de detalhes da lista com itens no Lista Voxx PRO" class="gallery-img">
-                    <img src="Screenshot_20250707_214541_ListaVoxx.jpg" alt="Tela de Configurações do Lista Voxx PRO" class="gallery-img">
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <footer id="contact" class="bg-black bg-opacity-30 border-t border-gray-800 mt-10">
-        <div class="container mx-auto py-8 px-4 text-center text-gray-400">
-            <h3 class="text-2xl font-bold text-gold mb-4">AppsRiad</h3>
-            <p class="mb-4">Inovação e luxo com o <strong>Lista Voxx PRO</strong>.</p>
-            <div class="flex justify-center space-x-4 mb-6">
-                <a href="#" class="hover:text-gold transition-colors duration-300"><i data-lucide="twitter"></i></a>
-                <a href="#" class="hover:text-gold transition-colors duration-300"><i data-lucide="instagram"></i></a>
-                <a href="#" class="hover:text-gold transition-colors duration-300"><i data-lucide="youtube"></i></a>
+    <!-- Footer -->
+    <footer class="bg-black/80 border-t border-white/5 py-10">
+        <div class="max-w-[1400px] mx-auto px-6 text-center">
+            <div class="flex flex-col items-center gap-1 mb-2">
+                <span class="text-lg font-bold tracking-tighter text-white">AppsRiad</span>
             </div>
-            <p>Desenvolvendo o <strong>Lista Voxx PRO</strong> e soluções inovadoras para o seu dia a dia.</p>
-            <p class="text-sm mt-2">© 2025 AppsRiad - Lista Voxx PRO - Todos os direitos reservados</p>
+            
+            <div class="text-[9px] text-gray-500 tracking-[0.3em] uppercase mb-8">
+                LISTA VOXX PRO - TODOS OS DIREITOS RESERVADOS
+            </div>
+
+            <div class="flex justify-center">
+                <a href="mailto:appsriad.br@gmail.com" 
+                   class="px-8 py-2 bg-white/5 hover:bg-brand-gold hover:text-black text-gray-400 rounded-full border border-white/10 transition-all duration-300 font-black text-sm tracking-widest">
+                    2025
+                </a>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Garante que o script dos ícones só roda depois que a página inteira for carregada
-        window.onload = () => {
-            lucide.createIcons();
-        };
+    <!-- CTA Mobile -->
+    <div class="fixed bottom-6 right-6 z-50 md:hidden">
+        <a href="https://play.google.com/store/apps/details?id=com.doc.na.ListaVoxxPRO" target="_blank"
+            class="w-14 h-14 bg-brand-gold text-black rounded-2xl flex items-center justify-center shadow-2xl transition-all active:scale-90">
+            <i data-lucide="play" class="w-6 h-6 fill-black"></i>
+        </a>
+    </div>
 
-        // Lógica para animação de scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+    <script>
+        lucide.createIcons();
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 50) {
+                    reveal.classList.add('active');
                 }
             });
-        }, {
-            threshold: 0.1 
-        });
-
-        const sections = document.querySelectorAll('.fade-in-section');
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
 </body>
 </html>
